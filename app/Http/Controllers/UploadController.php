@@ -22,8 +22,9 @@ class UploadController extends Controller
         }
 
         $uploadFolder = $request->type;
+        $uploadsDir = base_path('public/uploads');
         $image = $request->file('image');
-        $image->storeAs("$uploadFolder","$request->id.jpg");
+        $image->move("$uploadsDir/$uploadFolder","$request->id.jpg");
 
         return response()->json(['message' => 'File uploaded.'])->setStatusCode(Response::HTTP_CREATED);
     }

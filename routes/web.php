@@ -13,6 +13,9 @@
 |
 */
 
+$router->get('/',function ()  {
+    return view('index');
+});
 
 $router->group(['prefix' => 'api/v1'], function () use ($router) {
 
